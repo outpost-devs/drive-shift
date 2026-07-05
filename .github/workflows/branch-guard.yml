@@ -1,0 +1,30 @@
+name: Branch Protection Guard
+
+on:
+  pull_request:
+    branches:
+      - main
+      - stage
+
+jobs:
+  validate-branch-flow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce PR branch constraints
+        run: |
+          TARGET="${{ github.base_ref }}"
+          SOURCE="${{ github.head_ref }}"
+          echo "Target Branch: $TARGET"
+          echo "Source Branch: $SOURCE"
+          
+          if [ "$TARGET" = "main" ] && [ "$SOURCE" != "stage" ]; then
+            echo "::error::Violation: The 'main' branch can only receive merges from the 'stage' branch."
+            exit 1
+          fi
+          
+          if [ "$TARGET" = "stage" ] && [ "$SOURCE" != "dev" ]; then
+            echo "::error::Violation: The 'stage' branch can only receive merges from the 'dev' branch."
+            exit 1
+          fi
+          
+          echo "Branch check passed successfully!"

@@ -1,0 +1,30 @@
+# Security
+private-key.pem
+*.pem
+mcp-github-app.cjs
+.env
+.env.*
+!.env.example
+
+# Dependency directories
+node_modules/
+/jspm_packages/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+target/
+*.class
+
+# IDE and OS files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
