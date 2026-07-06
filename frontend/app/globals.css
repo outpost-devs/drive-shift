@@ -1,26 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F1F3F4; /* gs-neutral-100 */
+  --foreground: #202124; /* gs-neutral-900 */
+
+  /* Color Palette (Section 12.1 of PRD) */
+  --gs-blue-600: #1A73E8;
+  --gs-blue-700: #1557B0;
+  --gs-blue-50: #E8F0FE;
+  --gs-green-600: #188038;
+  --gs-red-600: #D93025;
+  --gs-yellow-600: #F29900;
+  --gs-neutral-900: #202124;
+  --gs-neutral-600: #5F6368;
+  --gs-neutral-300: #DADCE0;
+  --gs-neutral-100: #F1F3F4;
+  --gs-white: #FFFFFF;
+
+  /* Elevation System (Material Design 3 shadow tiers) */
+  --shadow-tier-1: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  --shadow-tier-2: 0 1px 2px rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  --shadow-tier-3: 0 4px 8px 3px rgba(60, 64, 67, 0.15), 0 1px 3px rgba(60, 64, 67, 0.3);
+  --shadow-tier-4: 0 6px 10px 4px rgba(60, 64, 67, 0.15), 0 2px 3px rgba(60, 64, 67, 0.3);
+
+  /* Corner Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  /* Colors */
+  --color-gs-blue-600: var(--gs-blue-600);
+  --color-gs-blue-700: var(--gs-blue-700);
+  --color-gs-blue-50: var(--gs-blue-50);
+  --color-gs-green-600: var(--gs-green-600);
+  --color-gs-red-600: var(--gs-red-600);
+  --color-gs-yellow-600: var(--gs-yellow-600);
+  --color-gs-neutral-900: var(--gs-neutral-900);
+  --color-gs-neutral-600: var(--gs-neutral-600);
+  --color-gs-neutral-300: var(--gs-neutral-300);
+  --color-gs-neutral-100: var(--gs-neutral-100);
+  --color-gs-white: var(--gs-white);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Spacing: Inherits the standard 8px grid. Under Tailwind v4, standard spacing utilities like space-1 (4px), space-2 (8px), etc. map automatically. */
+
+  /* Typography Fonts */
+  --font-display: "Product Sans", "Google Sans", var(--font-roboto), sans-serif;
+  --font-sans: var(--font-roboto), sans-serif;
+  --font-mono: var(--font-roboto-mono), monospace;
+
+  /* Shadows (Elevations) */
+  --shadow-tier-0: none;
+  --shadow-tier-1: var(--shadow-tier-1);
+  --shadow-tier-2: var(--shadow-tier-2);
+  --shadow-tier-3: var(--shadow-tier-3);
+  --shadow-tier-4: var(--shadow-tier-4);
+
+  /* Radii */
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--gs-neutral-100);
+  color: var(--gs-neutral-900);
+  font-family: var(--font-roboto), sans-serif;
 }
