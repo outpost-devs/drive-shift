@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       createdAt: newJob.createdAt
     }, { status: 201 });
 
-  } catch (err) {
+  } catch {
     return NextResponse.json(
       { error: "invalid_json", message: "Malformed JSON request body" },
       { status: 400 }

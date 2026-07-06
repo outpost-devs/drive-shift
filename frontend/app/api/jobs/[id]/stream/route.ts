@@ -24,7 +24,7 @@ export async function GET(
         const payload = `event: ${event.type}\ndata: ${event.data}\n\n`;
         try {
           controller.enqueue(encoder.encode(payload));
-        } catch (e) {
+        } catch {
           // If connection closed, unsubscribe listener
           mockStore.unsubscribeFromJob(id, listener);
         }
@@ -47,7 +47,7 @@ export async function GET(
         mockStore.unsubscribeFromJob(id, listener);
         try {
           controller.close();
-        } catch (_) {}
+        } catch {}
       });
     }
   });

@@ -107,7 +107,8 @@ class MockStore {
   }
 
   // Create a transfer job
-  public createJob(transferMode: "COPY" | "MOVE", conflictPolicy: "skip" | "rename" | "overwrite", sourceItemIds: string[], targetParentId: string): TransferJob {
+  public createJob(transferMode: "COPY" | "MOVE", conflictPolicy: "skip" | "rename" | "overwrite", sourceItemIds: string[], _targetParentId: string): TransferJob {
+    void _targetParentId;
     const id = `job-${Math.random().toString(36).substring(2, 15)}`;
     
     // Estimate files/folders count based on selection
@@ -315,7 +316,7 @@ class MockStore {
     }, 1500); // Progress tick every 1.5 seconds
   }
 
-  private broadcastToJob(id: string, type: string, dataObj: any) {
+  private broadcastToJob(id: string, type: string, dataObj: Record<string, unknown>) {
     const job = this.jobs.get(id);
     if (job && job.listeners) {
       const eventStr = JSON.stringify(dataObj);

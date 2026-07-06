@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { mockStore } from "@/lib/mocks/store";
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   // Reset mock state store
   mockStore.reset();
 
