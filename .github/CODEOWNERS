@@ -1,0 +1,6 @@
+# GitHub Codeowners configuration
+# Relates to WORK_DIVISION.md and GITHUB_SETUP_GUIDE.md
+
+/backend/   @Satish-970
+/frontend/  @allenjose24
+/docs/      @Satish-970 @allenjose24
